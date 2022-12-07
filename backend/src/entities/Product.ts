@@ -8,11 +8,11 @@ export class Product{
     @Column({type: 'text'})//espeficar tipo texto + limite
     name:string
 
-    @Column()
+    @Column({type: 'integer'})
     price:number
 
-    @Column()
-    quantidade:number
+    @Column({type: 'integer'})
+    quantity:number
 
 }
 
