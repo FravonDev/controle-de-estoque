@@ -5,13 +5,13 @@ export class Product{
     @PrimaryGeneratedColumn()//definir a primary key + autoIncremento
     id:number
     
-    @Column({type: 'text', length: 100})//espeficar tipo texto + limite
+    @Column({type: 'text'})//espeficar tipo texto + limite
     name:string
 
-    @Column()//espeficar tipo texto
+    @Column()
     price:number
 
-    @Column()//espeficar tipo texto
+    @Column()
     quantidade:number
 
 }

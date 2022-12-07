@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import 'reflect-metadata'
-import { DataSource } from "typeorm";
+import { DataSource, Migration } from "typeorm";
 
 // Mesmo definindo a porta como number no arquivo de env, ele vira string
 // podemos resolver transformando em number ou undefined
@@ -14,4 +14,6 @@ export const AppDataSource = new DataSource({
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
+    entities: [`${__dirname}/**/entities/*.{ts,js}`],
+    migrations: [`${__dirname}/**/migrations/*.{ts,js}`]
 })
