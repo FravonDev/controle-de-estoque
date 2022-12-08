@@ -60,41 +60,40 @@ export class ProductController {
       if (!product)
         return res.status(404).json({ message: "produto não encontrado" });
 
-      await productRepository.remove(product)
+      await productRepository.remove(product);
 
-      return res.status(200).json('Produto Removido');
+      return res.status(200).json("Produto Removido");
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   }
 
+  
   async update(req: Request, res: Response) {
     // atualizar um elemento por id
     const { id } = req.params;
     const { name, price, quantity } = req.body;
-   
-    
+
+    await productRepository.findOneBy({ id: parseInt(id) });
+  
     try {
+      
+      const updatedProduct = productRepository.create({
+        id: parseInt(id),
+        name: name,
+        price: price,
+        quantity: quantity 
+      });
+      console.log(updatedProduct);
+      
+      productRepository.update(parseInt(id), updatedProduct)
       const product = await productRepository.findOneBy({ id: parseInt(id) });
       if (!product)
         return res.status(404).json({ message: "produto não encontrado" });
-      // FIXME
-      await productRepository.update(id, {
-        name,
-        price,
-        quantity,
-      });
 
-      if (!name && !price && !quantity) {
-        return res
-          .status(400)
-          .json({ message: "nome, preço, e quantidade são obrigatórios" });
-      }
-       
+      return res.status(200).json(updatedProduct)
       
-
-      return res.status(200).json('Produto Atualizado');
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
