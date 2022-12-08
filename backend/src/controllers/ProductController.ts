@@ -4,8 +4,10 @@ import { productRepository } from "../repositories/productRepository";
 export class ProductController {
   async create(req: Request, res: Response) {
     const { name, price, quantity } = req.body;
-    if (!name && !price && !quantity ) {
-      return res.status(400).json({ message: "O nome é obrigatório" });
+    if (!name && !price && !quantity) {
+      return res
+        .status(400)
+        .json({ message: "nome, preço, e quantidade são obrigatórios" });
     }
     try {
       const newProduct = productRepository.create({
@@ -17,6 +19,82 @@ export class ProductController {
       await productRepository.save(newProduct);
       console.log(newProduct);
       return res.status(201).json(newProduct);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+
+  async list(req: Request, res: Response) {
+    try {
+      const allProducts = await productRepository.find();
+      console.log(allProducts);
+      return res.json(allProducts);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+
+  async find(req: Request, res: Response) {
+    // encontrar um elemento por id
+    const { id } = req.params;
+    try {
+      const product = await productRepository.findOneBy({ id: parseInt(id) });
+
+      if (!product)
+        return res.status(404).json({ message: "produto não encontrado" });
+
+      return res.json(product);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+
+  async delete(req: Request, res: Response) {
+    // Deletar um elemento por id
+    const { id } = req.params;
+    try {
+      const product = await productRepository.findOneBy({ id: parseInt(id) });
+      if (!product)
+        return res.status(404).json({ message: "produto não encontrado" });
+
+      await productRepository.remove(product)
+
+      return res.status(200).json('Produto Removido');
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+
+  async update(req: Request, res: Response) {
+    // atualizar um elemento por id
+    const { id } = req.params;
+    const { name, price, quantity } = req.body;
+   
+    
+    try {
+      const product = await productRepository.findOneBy({ id: parseInt(id) });
+      if (!product)
+        return res.status(404).json({ message: "produto não encontrado" });
+      // FIXME
+      await productRepository.update(id, {
+        name,
+        price,
+        quantity,
+      });
+
+      if (!name && !price && !quantity) {
+        return res
+          .status(400)
+          .json({ message: "nome, preço, e quantidade são obrigatórios" });
+      }
+       
+      
+
+      return res.status(200).json('Produto Atualizado');
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
