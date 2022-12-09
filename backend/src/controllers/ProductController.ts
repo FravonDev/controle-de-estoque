@@ -13,14 +13,12 @@ export class ProductController {
       const newProduct = productRepository.create({
         name,
         price,
-        quantity,
+        quantity
       });
       //salvar o novo produto
       await productRepository.save(newProduct);
-      console.log(newProduct);
       return res.status(201).json(newProduct);
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   }
@@ -28,10 +26,8 @@ export class ProductController {
   async list(req: Request, res: Response) {
     try {
       const allProducts = await productRepository.find();
-      console.log(allProducts);
       return res.json(allProducts);
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   }
@@ -47,7 +43,6 @@ export class ProductController {
 
       return res.json(product);
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   }
@@ -64,38 +59,32 @@ export class ProductController {
 
       return res.status(200).json("Produto Removido");
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   }
 
-  
   async update(req: Request, res: Response) {
     // atualizar um elemento por id
     const { id } = req.params;
     const { name, price, quantity } = req.body;
 
     await productRepository.findOneBy({ id: parseInt(id) });
-  
+
     try {
-      
       const updatedProduct = productRepository.create({
         id: parseInt(id),
         name: name,
         price: price,
-        quantity: quantity 
+        quantity: quantity
       });
-      console.log(updatedProduct);
-      
-      productRepository.update(parseInt(id), updatedProduct)
+
+      productRepository.update(parseInt(id), updatedProduct);
       const product = await productRepository.findOneBy({ id: parseInt(id) });
       if (!product)
         return res.status(404).json({ message: "produto não encontrado" });
 
-      return res.status(200).json(updatedProduct)
-      
+      return res.status(200).json(updatedProduct);
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   }
