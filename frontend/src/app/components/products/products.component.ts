@@ -1,11 +1,34 @@
 import { Component } from '@angular/core';
+import { ProductData } from 'src/app/models/productData';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent {
-  produtos = [{"id":11,"name":"mousepad","price":100,"quantity":2},{"id":12,"name":"teclado mecanico swbrown","price":300,"quantity":5},{"id":10,"name":"novidade","price":235711,"quantity":4},{"id":8,"name":"Persistencia","price":621,"quantity":10},{"id":7,"name":"asdasd","price":621,"quantity":10},{"id":43,"name":"Notebook","price":6000,"quantity":2},{"id":44,"name":"action figure","price":1000,"quantity":1},{"id":48,"name":"light","price":1000,"quantity":1},{"id":49,"name":"Monitor","price":1000,"quantity":1},{"id":9,"name":"Ipad Pro","price":8000,"quantity":1},{"id":50,"name":"Caneta","price":1000,"quantity":1},{"id":47,"name":"Ipad Pro","price":10000,"quantity":1}]
+  produtos:ProductData | any;
+  constructor(
+    private service: ProductService
+  ) {}
+
+  ngOnInit(){
+
+      this.service.getProducts().subscribe({
+      next: (res) => {
+        this.produtos = res
+        },
+      error: (err) => console.log(err)
+    })
+
+
+// this.service.getProduct(11).subscribe({
+//   next: (res) => console.log(res),
+//   error: (err) => console.log(err)
+// })
+
+
+  }
 
 }
