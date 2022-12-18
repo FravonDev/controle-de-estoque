@@ -8,10 +8,12 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent {
-  produtos:ProductData | any;
+  produtos:ProductData[];
   constructor(
     private service: ProductService
-  ) {}
+  ) {
+    this.produtos = []
+  }
 
   ngOnInit(){
 
@@ -22,7 +24,7 @@ export class ProductsComponent {
       error: (err) => console.log(err)
     })
 
-
+//consultar um produto
 // this.service.getProduct(11).subscribe({
 //   next: (res) => console.log(res),
 //   error: (err) => console.log(err)
