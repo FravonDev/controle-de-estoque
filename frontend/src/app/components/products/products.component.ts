@@ -6,31 +6,37 @@ import { ProductService } from 'src/app/services/product.service';
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
+
 })
 export class ProductsComponent {
-  produtos:ProductData[];
-  constructor(
-    private service: ProductService
-  ) {
-    this.produtos = []
+  produtos: ProductData[];
+  constructor(private service: ProductService) {
+    this.produtos = [];
   }
 
-  ngOnInit(){
-
-      this.service.getProducts().subscribe({
+  ngOnInit() {
+    this.service.getProducts().subscribe({
       next: (res) => {
-        this.produtos = res
-        },
-      error: (err) => console.log(err)
-    })
-
-//consultar um produto
-// this.service.getProduct(11).subscribe({
-//   next: (res) => console.log(res),
-//   error: (err) => console.log(err)
-// })
-
-
+        this.produtos = res;
+      },
+      error: (err) => console.log(err),
+    });
+  }
+  editProduct(product: ProductData): void {
+    console.log(product);
   }
 
+  deleteProduct(product: ProductData): void {
+    console.log(product);
+  }
+
+  //consultar um produto
+  // this.service.getProduct(11).subscribe({
+  //   next: (res) => console.log(res),
+  //   error: (err) => console.log(err)
+  // })
+  openNew() {
+    this.produtos = [];
+
+}
 }
