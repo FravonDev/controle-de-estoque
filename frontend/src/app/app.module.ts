@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './components/products/products.component';
 import { TableModule } from "primeng/table";
 import { ButtonModule } from 'primeng/button';
+import { HeaderComponent } from './components/template/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    ProductsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +21,7 @@ import { ButtonModule } from 'primeng/button';
     TableModule,
     HttpClientModule,
     ButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
