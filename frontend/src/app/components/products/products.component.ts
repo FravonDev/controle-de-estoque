@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsComponent {
   produtos: ProductData[];
+  produtosSelecionados = []
   constructor(private service: ProductService) {
     this.produtos = [];
   }
@@ -37,6 +38,5 @@ export class ProductsComponent {
   // })
   openNew() {
     this.produtos = [];
-
 }
 }

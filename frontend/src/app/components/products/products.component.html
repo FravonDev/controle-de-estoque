@@ -1,30 +1,35 @@
-<div class="cardTable">
-    <ng-template pTemplate="left">
-        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
-    </ng-template>
+<div class="card">
+  <p-toolbar styleClass="mb-4 gap-2" >
+    <ng-template  pTemplate="left">
+        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2 button_new"></button>
+        <button pButton pRipple  icon="pi pi-trash" class="p-button-danger "  ></button>
+          <span class="p-input-icon-left search_bar" >
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" placeholder="Search..." />
+          </span>
+  </ng-template>
 
-    <p-table [value]="produtos" [tableStyle]="{'min-width': '50rem'}">
-        <ng-template pTemplate="header">
-
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Categoria</th>
-                <th>Quantidade</th>
-                <th>Ações</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-produto>
-            <tr>
-                <td>{{produto.id}}</td>
-                <td>{{produto.name}}</td>
-                <td>{{produto.price}}</td>
-                <td>{{produto.quantity}}</td>
-                <td>
-                  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(produto)"></button>
-                  <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(produto)"></button>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+</p-toolbar>
+  <p-table [value]="produtos" responsiveLayout="stack" [breakpoint]="'960px'" [tableStyle]="{'min-width': '50rem'}"
+  [(selection)]="produtosSelecionados">
+      <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th>Nome</th>
+              <th>preço</th>
+              <th>Quantity</th>
+              <th>Ações</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product let-columns="columns">
+          <tr>
+              <td><span class="p-column-title">Name</span>{{product.name}}</td>
+              <td><span class="p-column-title">Price</span>{{product.price | currency:'BRL'}}</td>
+              <td><span class="p-column-title">Quantity</span>{{product.quantity}}</td>
+              <td class="action_buttons">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
 </div>
