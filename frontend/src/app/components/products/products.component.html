@@ -1,7 +1,7 @@
 <div>
   <p-toolbar styleClass="mb-4 gap-2" >
     <ng-template  pTemplate="left">
-        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2 button_new"></button>
+        <button pButton pRipple label="New" (click)="openNew()" icon="pi pi-plus" class="p-button-success mr-2 button_new"></button>
         <button pButton pRipple  icon="pi pi-trash" class="p-button-danger "  ></button>
           <span class="p-input-icon-left search_bar" >
               <i class="pi pi-search"></i>
@@ -33,3 +33,28 @@
       </ng-template>
   </p-table>
 </div>
+
+
+<p-dialog [(visible)]="dialogoProduto" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+      <div class="field">
+          <label for="name">Name</label>
+          <input type="text" pInputText id="name" [(ngModel)]="novoProduto.name" required autofocus />
+          <small class="p-error" *ngIf="enviado && !novoProduto.name">Name is required.</small>
+      </div>
+      <div class="field">
+        <label for="price">Price</label>
+        <p-inputNumber id="price" [(ngModel)]="novoProduto.price" mode="currency" currency="BRL" locale="pt-BR"></p-inputNumber>
+    </div>
+    <div class="field col">
+        <label for="quantity">Quantity</label>
+        <p-inputNumber id="quantity" [(ngModel)]="novoProduto.quantity"></p-inputNumber>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+  </ng-template>
+</p-dialog>
+

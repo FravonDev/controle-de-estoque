@@ -2,17 +2,35 @@ import { Component } from '@angular/core';
 import { ProductData } from 'src/app/models/productData';
 import { ProductService } from 'src/app/services/product.service';
 
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
-
+  styles: [`
+  :host ::ng-deep .p-dialog .product-image {
+      width: 150px;
+      margin: 0 auto 2rem auto;
+      display: block;
+  }
+`],
+  providers: [MessageService, ConfirmationService],
 })
 export class ProductsComponent {
   produtos: ProductData[];
-  produtosSelecionados = []
+  //FIXME:
+  novoProduto: ProductData;
+  enviado: boolean;
+  dialogoProduto: boolean;
+
+  produtosSelecionados = [];
   constructor(private service: ProductService) {
     this.produtos = [];
+    this.novoProduto = { id: 0, name: '', price: 0, quantity: 0 };
+    this.enviado = false;
+    this.dialogoProduto = false;
   }
 
   ngOnInit() {
@@ -37,6 +55,25 @@ export class ProductsComponent {
   //   error: (err) => console.log(err)
   // })
   openNew() {
-    this.produtos = [];
-}
+    this.dialogoProduto = true;
+    this.novoProduto;
+    this.enviado = false;
+  }
+
+  //método para ocultar a caixa de dialogo
+  hideDialog() {
+    this.dialogoProduto = false;
+    this.enviado = false;
+  }
+  //método para salvar o novo produto
+  saveProduct() {
+    this.enviado = true;
+
+    //salvar o produto
+    if (this.novoProduto.name.trim()){
+      this.service.postProduct(this.novoProduto).subscribe((res) => console.log(res))
+
+    }
+    this.dialogoProduto = false
+    }
 }
