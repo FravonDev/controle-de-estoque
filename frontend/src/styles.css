@@ -9,3 +9,10 @@
   color: black;
   font-family: "Poppins", sans-serif;
 }
+
+
+body{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}

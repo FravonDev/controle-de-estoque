@@ -8,7 +8,6 @@ import { ProductsComponent } from './components/products/products.component';
 import { TableModule } from "primeng/table";
 import { ButtonModule } from 'primeng/button';
 import { HeaderComponent } from './components/template/header/header.component';
-import { FooterComponent } from './components/template/footer/footer.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextModule } from "primeng/inputtext";
 
@@ -18,7 +17,7 @@ import { InputTextModule } from "primeng/inputtext";
     AppComponent,
     ProductsComponent,
     HeaderComponent,
-    FooterComponent
+
   ],
   imports: [
     BrowserModule,

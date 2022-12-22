@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card flex-grow-1">
   <p-toolbar styleClass="mb-4 gap-2" >
     <ng-template  pTemplate="left">
         <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2 button_new"></button>
@@ -10,13 +10,13 @@
   </ng-template>
 
 </p-toolbar>
-  <p-table [value]="produtos" responsiveLayout="stack" [breakpoint]="'960px'" [tableStyle]="{'min-width': '50rem'}"
+  <p-table [value]="produtos" [rows]="8" [paginator]="true" responsiveLayout="stack" [breakpoint]="'960px'" [tableStyle]="{'min-width': '50rem'}"
   [(selection)]="produtosSelecionados">
       <ng-template pTemplate="header" let-columns>
           <tr>
               <th>Nome</th>
               <th>preço</th>
-              <th>Quantity</th>
+              <th>Quantidade</th>
               <th>Ações</th>
           </tr>
       </ng-template>
