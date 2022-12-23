@@ -29,7 +29,6 @@ export class ProductsComponent {
   constructor(
     private service: ProductService,
     private confirmationService: ConfirmationService,
-    private messageService: MessageService,
      ) {
     this.produtos = [];
     this.novoProduto = { id: 0, name: '', price: 0, quantity: 0 };
@@ -46,7 +45,10 @@ export class ProductsComponent {
     });
   }
   editProduct(product: ProductData): void {
-    console.log(product);
+    this.novoProduto = {...product};
+    console.log(this.novoProduto);
+    this.service.editProduct(product)
+    this.dialogoProduto = true;
   }
 
   deleteProduct(product: ProductData): void {
@@ -66,6 +68,8 @@ export class ProductsComponent {
   //   next: (res) => console.log(res),
   //   error: (err) => console.log(err)
   // })
+
+  //metodo para abrir dialogo
   openNew() {
     this.dialogoProduto = true;
     this.novoProduto;
@@ -83,9 +87,18 @@ export class ProductsComponent {
 
     //salvar o produto
     if (this.novoProduto.name.trim()){
-      this.service.postProduct(this.novoProduto).subscribe((res) => console.log(res))
+      //se já existir, atualize
+      if (this.novoProduto.id){
+        console.log('já existe');
+        this.service.editProduct(this.novoProduto).subscribe((res) => console.log(res))
+      }
+      // crie um novo
+      else{
+        this.service.postProduct(this.novoProduto).subscribe((res) => console.log(res))
+      }
 
     }
     this.dialogoProduto = false
+    this.novoProduto =  { id: 0, name: '', price: 0, quantity: 0 }
     }
 }
