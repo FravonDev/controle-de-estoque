@@ -2,7 +2,7 @@
   <p-toolbar styleClass="mb-4 gap-2" >
     <ng-template  pTemplate="left">
         <button pButton pRipple label="New" (click)="openNew()" icon="pi pi-plus" class="p-button-success mr-2 button_new"></button>
-        <button pButton pRipple  icon="pi pi-trash" class="p-button-danger "  ></button>
+        <button pButton pRipple  icon="pi pi-trash" (click)="deleteSelected()" class="p-button-danger "  ></button>
           <span class="p-input-icon-left search_bar" >
               <i class="pi pi-search"></i>
               <input pInputText type="text" placeholder="Search..." />
@@ -11,15 +11,15 @@
 
 </p-toolbar>
   <p-table [value]="produtos" [rows]="8" [paginator]="true" responsiveLayout="stack" [breakpoint]="'960px'" [tableStyle]="{'min-width': '50rem'}"
-  [(selection)]="produtosSelecionados">
+  [(selection)]="produtosSelecionados" sortField="id">
       <ng-template pTemplate="header" let-columns>
           <tr>
               <th style="width: 4rem">
                   <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
               </th>
-              <th>Nome</th>
-              <th>preço</th>
-              <th>Quantidade</th>
+              <th pSortableColumn="name">Nome<p-sortIcon field="name"></p-sortIcon></th>
+              <th pSortableColumn="price">preço<p-sortIcon field="price"></p-sortIcon></th>
+              <th pSortableColumn="quantity">Quantidade<p-sortIcon field="quantity"></p-sortIcon></th>
               <th>Ações</th>
           </tr>
       </ng-template>

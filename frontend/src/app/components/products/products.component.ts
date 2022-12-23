@@ -62,6 +62,14 @@ export class ProductsComponent {
 
   });
   }
+  deleteSelected():void{
+    this.confirmationService.confirm({
+      message: 'deseja excluir todos os produtos marcados?',
+      header: 'Excluir produtos marcados',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {}
+  });
+  }
 
   //consultar um produto
   // this.service.getProduct(11).subscribe({
