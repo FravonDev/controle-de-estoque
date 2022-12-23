@@ -14,6 +14,9 @@
   [(selection)]="produtosSelecionados">
       <ng-template pTemplate="header" let-columns>
           <tr>
+              <th style="width: 4rem">
+                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+              </th>
               <th>Nome</th>
               <th>preço</th>
               <th>Quantidade</th>
@@ -22,6 +25,9 @@
       </ng-template>
       <ng-template pTemplate="body" let-product let-columns="columns">
           <tr>
+                <td>
+                  <p-tableCheckbox [value]="product"></p-tableCheckbox>
+              </td>
               <td><span class="p-column-title">Name</span>{{product.name}}</td>
               <td><span class="p-column-title">Price</span>{{product.price | currency:'BRL'}}</td>
               <td><span class="p-column-title">Quantity</span>{{product.quantity}}</td>
@@ -34,6 +40,7 @@
   </p-table>
 </div>
 
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
 
 <p-dialog [(visible)]="dialogoProduto" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
   <ng-template pTemplate="content">

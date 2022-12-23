@@ -13,6 +13,8 @@ import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputNumberModule } from 'primeng/inputnumber';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     DialogModule,
     FormsModule,
     BrowserAnimationsModule,
-    InputNumberModule
+    InputNumberModule,
+    ConfirmDialogModule
 
   ],
   providers: [],

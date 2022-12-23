@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ProductData } from 'src/app/models/productData';
 import { ProductService } from 'src/app/services/product.service';
 
-import { ConfirmationService } from 'primeng/api';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-products',
@@ -26,7 +26,11 @@ export class ProductsComponent {
   dialogoProduto: boolean;
 
   produtosSelecionados = [];
-  constructor(private service: ProductService) {
+  constructor(
+    private service: ProductService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
+     ) {
     this.produtos = [];
     this.novoProduto = { id: 0, name: '', price: 0, quantity: 0 };
     this.enviado = false;
@@ -46,7 +50,15 @@ export class ProductsComponent {
   }
 
   deleteProduct(product: ProductData): void {
-    console.log(product);
+    this.confirmationService.confirm({
+      message: `tem certeza que vai excluir o produto ${product.name}?`,
+      header: 'Excluir produto',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.service.deleteProduct(product).subscribe((res) => console.log(res))
+      }
+
+  });
   }
 
   //consultar um produto
