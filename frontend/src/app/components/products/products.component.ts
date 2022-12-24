@@ -67,7 +67,11 @@ export class ProductsComponent {
       message: 'deseja excluir todos os produtos marcados?',
       header: 'Excluir produtos marcados',
       icon: 'pi pi-exclamation-triangle',
-      accept: () => {}
+      accept: () => {
+        this.produtosSelecionados.map(product => this.service.deleteProduct(product).subscribe((res) => console.log(res)
+        )
+        )
+      }
   });
   }
 
