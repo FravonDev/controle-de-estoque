@@ -1,5 +1,5 @@
 <h1>
-  <img src="https://media.discordapp.net/attachments/1022567703204069378/1056323745817579520/logo.png" alt="Logo controle de estoque">
+  <img src="https://media.discordapp.net/attachments/1022567703204069378/1056332434058264697/imagem_2022-12-24_190743359-removebg-preview.png" alt="Logo controle de estoque">
 </h1>
 
 ## 🧾 Sobre
