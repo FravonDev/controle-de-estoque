@@ -8,7 +8,7 @@ Feito para gerenciar estoque de produtos.
 programei tanto o **Frontend**, que são as interfaces quanto **Backend** que são APIs, regras de negócios, validações e banco de dados.
 
 
-## Funcionalidades ✔
+## ✔ Funcionalidades 
   - Cadastrar produtos
   - Editar produtos
   - Deletar produtos
