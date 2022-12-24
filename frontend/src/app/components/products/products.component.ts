@@ -36,18 +36,24 @@ export class ProductsComponent {
     this.dialogoProduto = false;
   }
 
-  ngOnInit() {
+  updateContent(){
+
     this.service.getProducts().subscribe({
       next: (res) => {
         this.produtos = res;
       },
       error: (err) => console.log(err),
     });
+    this.produtos = [...this.produtos];
   }
+  ngOnInit() {
+    this.updateContent();
+  }
+
   editProduct(product: ProductData): void {
     this.novoProduto = {...product};
     console.log(this.novoProduto);
-    this.service.editProduct(product)
+    this.service.editProduct(product).subscribe((res) => console.log(res))
     this.dialogoProduto = true;
   }
 
@@ -57,7 +63,10 @@ export class ProductsComponent {
       header: 'Excluir produto',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.service.deleteProduct(product).subscribe((res) => console.log(res))
+        this.service.deleteProduct(product).subscribe((res) => {
+          console.log(res)
+          this.updateContent();
+        })
       }
 
   });
@@ -68,7 +77,11 @@ export class ProductsComponent {
       header: 'Excluir produtos marcados',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.produtosSelecionados.map(product => this.service.deleteProduct(product).subscribe((res) => console.log(res)
+        this.produtosSelecionados.map(product => this.service.deleteProduct(product).subscribe((res) =>{
+          console.log(res)
+          console.log('tamo ae')
+          this.updateContent();
+        }
         )
         )
       }
@@ -102,11 +115,17 @@ export class ProductsComponent {
       //se já existir, atualize
       if (this.novoProduto.id){
         console.log('já existe');
-        this.service.editProduct(this.novoProduto).subscribe((res) => console.log(res))
+        this.service.editProduct(this.novoProduto).subscribe((res) => {
+          console.log(res)
+          this.updateContent();
+        })
       }
       // crie um novo
       else{
-        this.service.postProduct(this.novoProduto).subscribe((res) => console.log(res))
+        this.service.postProduct(this.novoProduto).subscribe((res) => {
+          console.log(res)
+          this.updateContent();
+        })
       }
 
     }
