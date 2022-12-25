@@ -66,4 +66,3 @@ $ cd frontend && ng serve
 
 - 📧 Envie um e-mail para: [flavioticontato@gmail.com](mailto:flavioticontato@gmail.com)
 - se conecte comigo no LinkedIn: [Flavio Adriano](https://linkedin.com/in/flavioadriano/)
-- GitHub: [flavinpv](https://github.com/fravondev/)
