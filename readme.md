@@ -2,70 +2,67 @@
   <img src="https://media.discordapp.net/attachments/1022567703204069378/1056334816682987591/logo.png" alt="Logo controle de estoque" width="200px">
 </h1>
 
-## :scroll: Sobre
-Feito para gerenciar estoque de produtos.
-é um CRUD, ou seja, ele cria dados, lê dados, atualiza e deleta.
-programei tanto o **Frontend**, que são as interfaces quanto **Backend** que são APIs, regras de negócios, validações e banco de dados.
 
-Veja mais no [Notion](https://fir-sphynx-f84.notion.site/Controle-de-estoque-af43747d8f58469586e2b00c77f82a07) 
+## 📝  Sobre
 
-## ✔ Funcionalidades 
-  - Cadastrar produtos
-  - Editar produtos
-  - Deletar produtos
-  - Gerenciar produtos
-  - Marcar e apagar todos produtos marcado
-  - Opções de mudar ordenação dos produtos
-  - mensagens de alertas
+Este projeto foi criado para gerenciar o estoque de produtos de uma empresa. Ele é um sistema CRUD (Criar, Ler, Atualizar, Deletar) que permite:
 
-## 🛠️ Ferramentas Frontend
+- Cadastrar novos produtos no estoque, incluindo informações como nome, quantidade e preço.
+- Editar as informações de produtos já cadastrados, incluindo o nome, quantidade e preço.
+- Remover produtos do estoque de forma individual ou em lote (marcando e apagando produtos marcados).
+- Exibir uma lista de todos os produtos cadastrados no estoque e alterar a ordenação dos produtos de acordo com diferentes critérios, como nome, quantidade e preço.
+- Exibir mensagens de alerta para informar o usuário sobre as operações realizadas, como cadastro de produtos, edição de produtos, remoção de produtos e alteração da ordenação dos produtos.
 
-- `Angular` que é um framework SPA
-- `Typescript` que tem a tipagem estática
-- `PrimeNg` utilizei components do PrimeNg
+## 🛠️ Ferramentas 
+
+### Frontend
+
+- `Angular` framework SPA para criar interfaces
+- `Typescript` superset JavaScript que tem a tipagem estática
+- `PrimeNg` Conjunto de components Angular com funcionaliudades visuais e de interação com o projeto
 
 
-## ⚒️ Ferramentas Backend 
-- `NodeJS` ambiente de execução javascript server-side 
-- `Typescript` por conta da tipagem estática
+### Backend 
+- `NodeJS` ambiente de execução javascript server-side para cruar aplicativos web
+- `Typescript` superset JavaScript que tem a tipagem estática
 -  `Express` por ser uma API Rest, então usarei Express para enviar e receber requisições HTTP (GET POST PUT DELETE)
-- `Typeorm` para para criar as tabelas e queryes no banco de dados
-- `Postgresql` como bando de dados
-- `Morgan` para mostrar o log das requisiçoes Http.
+- `Typeorm` para para criar as tabelas e consultas no banco de dados
+- `Postgresql` como bando de dados relacional
+- `Morgan` para exibir os logs das requisiçoes Http.
 - `Nodemon` para salvar as alterações sem ter que reiniciar o servidor
 - `Dotenv` para criar ambiente de desenvolvimento
 
 
-## 👨‍💻 Como testar o projeto
+## 🚀  Como usar o projeto
 
-No Vscode abra o terminal e siga esses comandos:
+Para usar o projeto de controle de estoque, siga os seguintes passos:
+
+1. Clone o projeto
+
 ```hash
-# Clone o projeto
-
 $ git clone https://github.com/FravonDev/controle-de-estoque
 ```
 
+2. Instale as dependências do projeto
+ 
 ```hash
-# Inicie o projeto
-
 $ npm install
 ```
 
-```hash
-# Execute o servidor local
+3. Execute o servidor local
 
+```hash
 $ cd backend && npm run dev
 ```
-deixe o servidor rodando e abra mais um terminal, depois digite o comando para inicar aplicação angular
+deixe o servidor rodando e abra outro terminal
 
+4.  Inicie a aplicação angular
 ```hash
-# Inicie a aplicação angular
-
 $ cd frontend && ng serve
 ```
+5. Abra o navegador e acesse o endereço http://localhost:4200 para ver o projeto em funcionamento.
 
-# 📧 Contate-me
+## 📩 Contatos
 
-- E-mail: [flavioticontato@gmail.com](mailto:flavioticontato@gmail.com)
-- LinkedIn: [Flavio Adriano](https://linkedin.com/in/flavioadriano/)
-- GitHub: [flavinpv](https://github.com/fravondev/)
+- Envie um e-mail para: [flavioticontato@gmail.com](mailto:flavioticontato@gmail.com)
+- se conecte comigo no LinkedIn: [Flavio Adriano](https://linkedin.com/in/flavioadriano/)
