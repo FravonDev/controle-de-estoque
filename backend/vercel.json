@@ -1,0 +1,15 @@
+{
+    "name": "deploy-nodejin-vercel",
+    "version": 2,
+    "public": true,
+    "build": {
+        "scripts": "src/index",
+        "use": "@vercel/node"
+    },
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "index.ts"
+        }
+    ]
+}

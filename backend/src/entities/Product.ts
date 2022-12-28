@@ -13,6 +13,4 @@ export class Product{
 
     @Column({type: 'integer'})
     quantity:number
-
 }
-
