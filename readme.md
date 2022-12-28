@@ -13,10 +13,6 @@ Este projeto foi criado para gerenciar o estoque de produtos de uma empresa. Ele
 - Exibir uma lista de todos os produtos cadastrados no estoque e alterar a ordenação dos produtos de acordo com diferentes critérios, como nome, quantidade e preço.
 - Exibir mensagens de alerta para informar o usuário sobre as operações realizadas, como cadastro de produtos, edição de produtos, remoção de produtos e alteração da ordenação dos produtos.
 
-## 🚀 Teste aqui
-clique no link abaixo para testar o controle de estoque.
-https://controle-de-estoque-psi.vercel.app
-
 ## 🛠️ Ferramentas 
 
 ### Frontend
@@ -39,9 +35,7 @@ https://controle-de-estoque-psi.vercel.app
 
 ## 🚀  Como usar o projeto
 
-Para usar o projeto de controle de estoque
-[Acesse aqui para acessar o site](https://controle-de-estoque-psi.vercel.app)
-ou siga os seguintes passos:
+Para usar o projeto de controle de estoque siga os seguintes passos:
 
 1. Clone o projeto
 
