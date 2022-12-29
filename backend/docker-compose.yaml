@@ -1,28 +1,14 @@
-version: '3'
+version: '3.7'
 services: 
-    db:
-        image: 'postgres:latest'
-        environment:
-            POSTGRES_PASSWORD: controlefravon
-            POSTGRES_USER: postgres
-            POSTGRES_DB: postgres
-        volumes:
-            - ./pgdata:/var/lib/postgresql/data
-        ports:
-            - "5432:5432"
     app:
-        image: nodejs:18.12.1
         container_name: fravon_api
-        restart: always
         build:
             context: .
             dockerfile: Dockerfile
-        env_file: 
-            - .env
         ports:
             - "3000:3000"
-        depends_on:
-            - db
+        restart: always
+        env_file: 
+            - .env
         volumes:
             - .:/usr/src/app
-
