@@ -3,9 +3,17 @@
 </h1>
 
 
-## 📝  Sobre
+# 🎉 Bem-vindo ao gerenciador de estoque!
+Estou feliz por você estar aqui e quero contar mais sobre o projeto.
 
-Este projeto foi criado para gerenciar o estoque de produtos de uma empresa. Ele é um sistema CRUD (Criar, Ler, Atualizar, Deletar) que permite:
+Com ele, você pode gerenciar o estoque de produtos da sua empresa de forma fácil e rápida. É um sistema completo de CRUD (Criar, Ler, Atualizar, Deletar), que permite adicionar, visualizar, atualizar e excluir produtos de maneira intuitiva.
+<br>
+<br>
+## 🚀 Teste a aplicação
+Se você quer experimentar a aplicação e ver como ela funciona, basta [clicar aqui](https://controle-de-estoque-psi.vercel.app). Eu espero que você aproveite!
+<br>
+<br>
+## 📊 Funcionalidades
 
 - Cadastrar novos produtos no estoque, incluindo informações como nome, quantidade e preço.
 - Editar as informações de produtos já cadastrados, incluindo o nome, quantidade e preço.
@@ -31,37 +39,13 @@ Este projeto foi criado para gerenciar o estoque de produtos de uma empresa. Ele
 - `Morgan` para exibir os logs das requisiçoes Http.
 - `Nodemon` para salvar as alterações sem ter que reiniciar o servidor
 - `Dotenv` para criar ambiente de desenvolvimento
-
+<br>
 
 ## 🚀  Como usar o projeto
 
-Para usar o projeto de controle de estoque siga os seguintes passos:
-
-1. Clone o projeto
-
-```hash
-$ git clone https://github.com/FravonDev/controle-de-estoque
-```
-
-2. Instale as dependências do projeto
- 
-```hash
-$ npm install
-```
-
-3. Execute o servidor local
-
-```hash
-$ cd backend && npm run dev
-```
-deixe o servidor rodando e abra outro terminal
-
-4.  Inicie a aplicação angular
-```hash
-$ cd frontend && ng serve
-```
-5. Abra o navegador e acesse o endereço http://localhost:4200 para ver o projeto em funcionamento.
-
+Para usar o projeto de controle de estoque você pode simplismente acessar: https://controle-de-estoque-psi.vercel.app
+<br>
+<br>
 ## 📩 Contatos
 
 - Envie um e-mail para: [flavioticontato@gmail.com](mailto:flavioticontato@gmail.com)
