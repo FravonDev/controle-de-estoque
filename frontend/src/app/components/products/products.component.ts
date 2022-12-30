@@ -21,7 +21,6 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class ProductsComponent {
   produtos: ProductData[];
-  //FIXME:
   novoProduto: ProductData;
   enviado: boolean;
   dialogoProduto: boolean;
