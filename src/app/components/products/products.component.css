@@ -1,0 +1,9 @@
+.action_buttons {
+  display: flex;
+  gap: .5rem;
+  overflow: hidden;
+}
+
+.button_new{
+  margin-right: 1rem;
+}

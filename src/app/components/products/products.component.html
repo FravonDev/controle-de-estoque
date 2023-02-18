@@ -1,0 +1,69 @@
+<div style="margin: 5%" *ngIf="produtos.length == 0">
+  <h1 style="padding: 2rem 0 2rem 0;">Nenhum produto encontrado</h1>
+  <button pButton pRipple label="Criar" (click)="openNew()" icon="pi pi-plus" class="p-button-success mr-2 button_new"></button>
+</div>
+
+<div style="margin: 5%;" *ngIf="produtos.length > 0">
+
+  <p-toolbar styleClass="mb-4 gap-2" >
+    <ng-template pTemplate="left">
+        <button pButton pRipple label="Novo" (click)="openNew()" icon="pi pi-plus" class="p-button-success mr-2 button_new"></button>
+        <button pButton pRipple [disabled]="produtosSelecionados.length == 0" icon="pi pi-trash" (click)="deleteSelected()" class="p-button-danger "  ></button>
+  </ng-template>
+
+</p-toolbar>
+  <p-table [value]="produtos"  [rows]="8" [paginator]="true"  responsiveLayout="stack" [breakpoint]="'960px'" [tableStyle]="{'min-width': '100%'}"
+  [(selection)]="produtosSelecionados" sortField="id">
+      <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th style="width: 4rem">
+                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+              </th>
+              <th pSortableColumn="name">Nome<p-sortIcon field="name"></p-sortIcon></th>
+              <th pSortableColumn="price">preço<p-sortIcon field="price"></p-sortIcon></th>
+              <th pSortableColumn="quantity">Quantidade<p-sortIcon field="quantity"></p-sortIcon></th>
+              <th>Ações</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product let-columns="columns">
+          <tr>
+              <td>
+                  <p-tableCheckbox [value]="product"></p-tableCheckbox>
+              </td>
+              <td><span class="p-column-title">Name</span>{{product.name}}</td>
+              <td><span class="p-column-title">Price</span>{{product.price | currency:'BRL'}}</td>
+              <td><span class="p-column-title">Quantity</span>{{product.quantity}}</td>
+              <td class="action_buttons">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+<p-dialog [(visible)]="dialogoProduto" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+      <div class="field">
+          <label for="name">Name</label>
+          <input type="text" pInputText id="name" [(ngModel)]="novoProduto.name" required autofocus />
+          <small class="p-error" *ngIf="enviado && !novoProduto.name">Name is required.</small>
+      </div>
+      <div class="field">
+        <label for="price">Price</label>
+        <p-inputNumber id="price" [(ngModel)]="novoProduto.price" mode="currency" currency="BRL" locale="pt-BR"></p-inputNumber>
+    </div>
+    <div class="field col">
+        <label for="quantity">Quantity</label>
+        <p-inputNumber id="quantity" [(ngModel)]="novoProduto.quantity"></p-inputNumber>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+  </ng-template>
+</p-dialog>
+
