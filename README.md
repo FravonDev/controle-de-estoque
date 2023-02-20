@@ -15,7 +15,7 @@ Com ele, você pode gerenciar o estoque de produtos da sua empresa de forma fác
 
 ## 🚀  Como usar o projeto
 
-Para usar o projeto de controle de estoque você pode simplismente acessar: https://controle-de-estoque-psi.vercel.app
+Para usar o projeto de controle de estoque você pode simplismente acessar:https://controle-de-estoque-jtwo0i1ii-flavinpv.vercel.app
 <br>
 <br>
 ## 📩 Contatos
