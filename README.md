@@ -9,8 +9,8 @@ Com ele, você pode gerenciar o estoque de produtos da sua empresa de forma fác
 <br>
 
 ### Frontend
-- `Angular` para criar ambiente de desenvolvimento
-- `Primeng` ambiente de execução javascript server-side para cruar aplicativos web
+- `Angular` framework spa para criação de interfaces
+- `Primeng`Biblioteca de componentes para angular
 <br>
 
 ## 🚀  Como usar o projeto
