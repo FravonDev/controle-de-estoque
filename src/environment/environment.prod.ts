@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  controlApi: 'http://localhost:3000',
+  controlApi: 'https://json-eight-xi.vercel.app',
 };

@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { ProductData } from 'src/app/models/productData';
+import { environment } from 'src/environment/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private baseURL: string = 'http://localhost:3000'; // URL do seu JSON Server
+  private baseURL: string = environment.controlApi;
 
   constructor(private http: HttpClient) {}
 
