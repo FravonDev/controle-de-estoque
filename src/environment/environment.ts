@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
-    controlApi: 'https://controle-de-estoque.cyclic.app'
-}
+  production: false,
+  controlApi: 'http://localhost:3000',
+};

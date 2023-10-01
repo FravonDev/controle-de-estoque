@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Mouse Razer Basilisk v3",
+      "price": 500,
+      "quantity": 10
+    },
+    {
+      "id": 2,
+      "name": "Gabinete NZXT H510",
+      "price": 300,
+      "quantity": 5
+    }
+  ]
+}
